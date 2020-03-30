@@ -1,5 +1,5 @@
 // Requiring path to so we can use relative routes to our HTML files
-//var path = require("path");
+
 const express =require('express'); 
 const router =express.Router(); 
 
@@ -8,14 +8,15 @@ const router =express.Router();
 
 module.exports = function(app) {
   
-  app.get("/api/workouts", function(req, res) {
+  app.get("/api/workout", function(req, res) {
    if (req.user) {
       res.redirect("/");
     }
-    res.sendFile(path.join(__dirname, "../pub));
-  });
+    res.sendFile(path.join(__dirname, "../pub))
+    
+});
 
- router.put("/api/workouts/:id", ({body, params} res) => {
+ router.put("/api/workout/:id", ({body, params} res) => {
      workoutNames.findByIdAndUpdate(
          params.id,
          {$push: exercises: body}, 
@@ -30,7 +31,7 @@ module.exports = function(app) {
      });
  });
 
-router.get("/api/workouts/range", (req, res) => {
+router.get("/api/workout/range", (req, res) => {
     workoutNames.find({}).limit(7)
     .then(dbworkouts =>{
         console.log(dbworkouts)
@@ -41,7 +42,7 @@ router.get("/api/workouts/range", (req, res) => {
     });
 });
 
-router.delete("/api/workouts", ({body}, res) => {
+router.delete("/api/workout", ({body}, res) => {
     workout.findByIdAndUpdate(body.id)
     .then(() => {
         res.json(true);
@@ -52,12 +53,5 @@ router.delete("/api/workouts", ({body}, res) => {
 });
 }); 
 
-module.exports = router; 
-//   app.get("/itinerary", function(req, res) {
-//     res.sendFile(path.join(__dirname, "../public/itinerary.html"));
-//   });
-
-//   app.get("/login", function(req, res) {
-//     res.sendFile(path.join(__dirname, "../public/login.html"));
-//   });
-// }
+module.exports = router;
+}
