@@ -23,7 +23,7 @@ The user should be able to:
   * View multiple the combined weight of multiple exercises on the `stats` page.
 
 
-# Submission on BCS
+## Submission on BCS
 
 You are required to submit the following:
 
